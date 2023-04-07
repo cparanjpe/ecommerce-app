@@ -119,9 +119,30 @@ body{
 /* product display styling */
 .product-display{
     height: max-content;
-    background-color: #e1edff;
+    background-color: #ffffff;
+    
 }
 .box{
-    min-height: 300px;
+    min-height: 500px;
     margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: black solid 2px;
+    border-radius: 10px;
+    padding: 3%;
+}
+.product-img{
+    width: 200px;
+    height: 200px;
+    border-radius: 7%;
+}
+.box >h2{
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+.box >p{
+    color: grey;
+
 }
