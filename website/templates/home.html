@@ -1,0 +1,73 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<div class="showcase">
+  <div class="pic">
+    <img class="woman" src="{{ url_for('static',filename='./img/woman1.png')}}" alt="" srcset="">
+    <img class="man" src="{{ url_for('static',filename='./img/man.png')}}" alt="" srcset="">
+  </div>
+  <div class="punchline">
+    <h2 class="hero" >Get more for your money - with our unbeatable prices and exclusive deals.</h2>
+  </div>
+</div>
+<div onload="fetchProducts()" class="products">
+  <div class="deals">
+    <h1>Today's deals :</h1>
+    <div class="container product-display">
+      <div class="row" id="row">
+        
+      </div>            
+    </div>
+
+    
+    
+    
+  </div>
+</div>
+{% endblock %}
+
+
+<img src="" alt="" srcset="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+  <div class="row">
+        <div class="col-md-4 col-sm-6">
+          <div class="box">
+            <h2>Product 1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="btn btn-primary">Buy Now</a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="box">
+            <h2>Product 1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="btn btn-primary">Buy Now</a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="box">
+            <h2>Product 1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="btn btn-primary">Buy Now</a>
+          </div>
+        </div>
+    </div>
+ -->
