@@ -11,14 +11,16 @@ const fetchProducts = async ()=>{
   const data = await response.json();
   let dataString = ``
   data.map(item=>{
+     if(item.category == "men's clothing" || item.category == "women's clothing")
       dataString+=`<div class="col-md-4 col-sm-6">
       <div class="box">
-             
+            <img src=${item.image} alt="" class="product-img" srcset="">
              <h2>${item.title}</h2>
-             <p>${item.description}</p>
+             <p>${item.description.substring(0,122)}...</p>
              <a href="#" class="btn btn-primary">Add to cart</a>
       </div>
  </div>`
   })
   document.getElementById('row').innerHTML+=dataString
 }
+
