@@ -1,0 +1,68 @@
+{% extends "base.html" %} {% block title %}Cart{% endblock %} {% block content
+    %}
+<div class="cart">
+<div class="container cart-container" >
+    <div class="cartvalue" id="cartvalue">
+        <button onclick="handleClick('{{cart_items}}')">Load Cart</button> 
+       
+        
+        
+    </div>
+    <div class="pricestatus">
+        <h3>Total value : (₹) </h3> <h3 id="pricetotal">Price total</h3>  
+    </div>
+       
+</div>
+</div>
+
+<script>
+    let cartval = 0
+    function handleClick(cart_items){
+        var products = cart_items.split(",")    
+        products.map(function(product){            
+            if(product != ""){
+                createCartCard(product)                
+            }
+        })
+        
+    }
+    const createCartCard = async(product_id)=>{
+        let dataString = ``
+        
+        const response = await fetch(`https://fakestoreapi.com/products/${product_id}`);
+        const data = await response.json();
+        cartval+=Math.ceil(data.price*80)
+        dataString+=`<div class="cartItemIndividual">
+    <img src=${data.image} alt="" class="cart-img" srcset="">
+     <h2>${data.title}</h2>
+     <h2>₹${Math.ceil(data.price*80)}</h2>
+</div>`
+        document.getElementById('cartvalue').innerHTML+=dataString
+        document.getElementById('pricetotal').innerHTML=cartval
+        
+    }
+</script>
+
+
+
+{% endblock %}
+
+
+
+
+
+<!-- <div class="product-row">
+    <img src="" alt="">
+    <h2>Title</h2>
+    <h4>Price</h4>
+</div>
+<div class="product-row">
+    <img src="" alt="">
+    <h2>Title</h2>
+    <h4>Price</h4>
+</div>
+<div class="product-row">
+    <img src="" alt="">
+    <h2>Title</h2>
+    <h4>Price</h4>
+</div> -->
