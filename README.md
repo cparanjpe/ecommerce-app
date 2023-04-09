@@ -1,4 +1,4 @@
-# Flask Web App Tutorial
+# E-Commerce WebApp using Python Flask
 
 ## Setup & Installation
 
