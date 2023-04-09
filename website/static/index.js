@@ -11,13 +11,16 @@ const fetchProducts = async ()=>{
   const data = await response.json();
   let dataString = ``
   data.map(item=>{
-     if(item.category == "men's clothing" || item.category == "women's clothing")
+    //  if(item.category == "men's clothing" || item.category == "women's clothing")
       dataString+=`<div class="col-md-4 col-sm-6">
-      <div class="box">
+      <div class="box content-card" >
             <img src=${item.image} alt="" class="product-img" srcset="">
              <h2>${item.title}</h2>
              <p>${item.description.substring(0,122)}...</p>
-             <a href="#" class="btn btn-primary">Add to cart</a>
+             <div class="price-cartbutton">
+             <h2>₹${Math.ceil(item.price*80)}</h2>
+             <a href="/add_to_cart/${item.id}" class="btn btn-primary" id=${item.id} product_id=${item.id}>Add to cart</a>
+             </div>
       </div>
  </div>`
   })
