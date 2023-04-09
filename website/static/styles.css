@@ -38,6 +38,23 @@ body{
     position: absolute;
     left: 175px;
 }
+.iphone{
+    width: 250px;
+    position: absolute;
+    left:90%;
+}
+.speaker{
+    position: absolute;
+    width: 400px;
+    left: 280%;
+    top: -5%;
+}
+.watch{
+    position: absolute;
+    width: 175px;
+    left: 320%;
+    top: 50%;
+}
 .punchline{
     max-width: 800px;
     display: flex;
@@ -46,7 +63,7 @@ body{
 }
 .hero{
     font-weight:900;
-    font-size: 3rem;
+    font-size: 2.6rem;
     font-family: 'Raleway', sans-serif;
     font-family: 'Lato', sans-serif;    
 }
@@ -152,6 +169,9 @@ body{
     align-items: center;
     justify-content: space-between;
 }
+.content-card:hover{
+    background-color: rgb(228, 228, 228);
+}
 /* cart page styling*/
 .cart-container{
     border-radius: 10px;
@@ -160,6 +180,7 @@ body{
     margin-top: 2%;
     display: flex;
     flex-direction: column;
+    margin-bottom: 4%;
     
 }
 .product-row{
@@ -169,12 +190,15 @@ body{
     border: black solid 1px;
     margin-top: 1%;
 }
-/* styling checkout-cart */
 .cart{
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .cartItemIndividual{
     display: flex;
@@ -185,10 +209,30 @@ body{
     border-bottom: 1px solid #000;    
 }
 .cart-img{
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
+    border-radius: 2%;
 }
 .pricestatus{
     display: flex;
     justify-content: space-between;
+}
+.checkoutbtn{    
+    width: max-content;
+    height: auto;
+    border: #000 solid 1px;
+    padding: 15px 30px;
+    border-radius: 10%;    
+    background-color: rgb(24, 243, 24);
+    margin-bottom: 5%;
+}
+.checkout{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+}
+.checkoutbtn:hover, .checkout:hover{
+    background-color: rgb(34, 155, 34);
+    color:whitesmoke;
+    text-decoration: none;
 }
