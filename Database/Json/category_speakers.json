@@ -1,130 +1,148 @@
 {
- "product": [
-  {"id": 127,
-   "name": "Apple iPhone 12 (128GB) - Purple",
-   "rating": "4.5",
-   "price": "64,900",
-   "image": "https://m.media-amazon.com/images/I/71hIfcIPyxS._AC_UY218_.jpg",
-   "discount": "(8% off)"
-  },
-  {"id": 128,
-   "name": "Apple iPhone 14 (128 GB) - Yellow",
-   "rating": "4.5",
-   "price": "71,999",
-   "image": "https://m.media-amazon.com/images/I/61WAINtWPPL._AC_UY218_.jpg",
-   "discount": "(10% off)"
-  },
-  {"id": 129,
-   "name": "Apple iPhone 14 Pro Max (256 GB) - Gold",
-   "rating": "4.5",
-   "price": "1,49,900",
-   "image": "https://m.media-amazon.com/images/I/71T5NVOgbpL._AC_UY218_.jpg",
-   "discount": "(0% off)"
-  },
-  {"id": 130,
-   "name": "Apple iPhone 14 Pro (128 GB) - Deep Purple",
-   "rating": "4.5",
-   "price": "1,19,999",
-   "image": "https://m.media-amazon.com/images/I/61HHS0HrjpL._AC_UY218_.jpg",
-   "discount": "(8% off)"
-  },
-  {"id": 131,
-   "name": "Apple iPhone 14 (128 GB) - (Product) RED",
-   "rating": "4.5",
-   "price": "70,999",
-   "image": "https://m.media-amazon.com/images/I/611mRs-imxL._AC_UY218_.jpg",
-   "discount": "(11% off)"
-  },
-  {"id": 132,
-   "name": "Apple iPhone 14 Pro Max (128 GB) - Space Black",
-   "rating": "4.5",
-   "price": "1,27,999",
-   "image": "https://m.media-amazon.com/images/I/610pghkO81L._AC_UY218_.jpg",
-   "discount": "(9% off)"
-  },
-  {"id": 133,
-   "name": "Apple iPhone 14 (128 GB) - Yellow",
-   "rating": "4.5",
-   "price": "71,999",
-   "image": "https://m.media-amazon.com/images/I/61WAINtWPPL._AC_UY218_.jpg",
-   "discount": "(10% off)"
-  },
-  {"id": 134,
-   "name": "Apple iPhone 12 (64GB) - White",
-   "rating": "4.5",
-   "price": "53,999",
-   "image": "https://m.media-amazon.com/images/I/711wsjBtWeL._AC_UY218_.jpg",
-   "discount": "(10% off)"
-  },
-  {"id": 135,
-   "name": "Apple iPhone 14 Pro (128 GB) - Space Black",
-   "rating": "4.5",
-   "price": "1,19,999",
-   "image": "https://m.media-amazon.com/images/I/61XO4bORHUL._AC_UY218_.jpg",
-   "discount": "(8% off)"
-  },
-  {"id": 136,
-   "name": "Apple iPhone 14 Plus (128 GB) - Midnight",
-   "rating": "4.6",
-   "price": "84,900",
-   "image": "https://m.media-amazon.com/images/I/61B0+qQriPL._AC_UY218_.jpg",
-   "discount": "(6% off)"
-  },
-  {"id": 137,
-   "name": "Apple iPhone 12 (128GB) - (Product) RED",
-   "rating": "4.5",
-   "price": "59,900",
-   "image": "https://m.media-amazon.com/images/I/71E5zB1qbIL._AC_UY218_.jpg",
-   "discount": "(16% off)"
-  },
-  {"id": 138,
-   "name": "Apple iPhone 14 Pro (256 GB) - Gold",
-   "rating": "4.5",
-   "price": "1,29,999",
-   "image": "https://m.media-amazon.com/images/I/71ZDY57yTQL._AC_UY218_.jpg",
-   "discount": "(7% off)"
-  },
-  {"id": 139,
-   "name": "Apple iPhone 14 Pro (128 GB) - Gold",
-   "rating": "4.5",
-   "price": "1,19,999",
-   "image": "https://m.media-amazon.com/images/I/71ZDY57yTQL._AC_UY218_.jpg",
-   "discount": "(8% off)"
-  },
-  {"id": 140,
-   "name": "Apple iPhone 12 (64GB) - (Product) RED",
-   "rating": "4.5",
-   "price": "53,999",
-   "image": "https://m.media-amazon.com/images/I/71E5zB1qbIL._AC_UY218_.jpg",
-   "discount": "(10% off)"
-  },
-  {"id": 141,
-   "name": "Apple iPhone 14 Pro (256 GB) - Space Black",
-   "rating": "4.5",
-   "price": "1,39,900",
-   "image": "https://m.media-amazon.com/images/I/61XO4bORHUL._AC_UY218_.jpg",
-   "discount": "(0% off)"
-  },
-  {"id": 142,
-   "name": "Apple iPhone 14 Pro (256 GB) - Deep Purple",
-   "rating": "4.5",
-   "price": "1,39,900",
-   "image": "https://m.media-amazon.com/images/I/61HHS0HrjpL._AC_UY218_.jpg",
-   "discount": "(0% off)"
-  },
-  {"id": 143,
-   "name": "Apple iPhone SE (128 GB) - Midnight (3rd Generation)",
-   "rating": "4.3",
-   "price": "54,900",
-   "image": "https://m.media-amazon.com/images/I/61TOWf11+jL._AC_UY218_.jpg",
-   "discount": "(0% off)"
-  },
-  {"id": 144,
-   "name": "Apple iPhone SE (64 GB) - Midnight (3rd Generation)",
-   "rating": "4.3",
-   "price": "49,900",
-   "image": "https://m.media-amazon.com/images/I/61TOWf11+jL._AC_UY218_.jpg",
-   "discount": "(0% off)"
-  }
- ]
+  "product": [
+    {
+      "id": 127,
+      "name": "Echo Dot (3rd Gen) - Compact smart speaker with Alexa & Bluetooth (Black)",
+      "rating": "4.4",
+      "price": "3,499",
+      "image": "https://m.media-amazon.com/images/I/61EXU8BuGZL._AC_UY218_.jpg",
+      "discount": "(22% off)"
+    },
+    {
+      "id": 128,
+      "name": "AmazonBasics Bluetooth Speaker 5.0 Soundbar with 16W RMS, 2000mAh Battery, Upto 19 Hrs Playtime Aux/USB Port (Blue)",
+      "rating": "3.8",
+      "price": "1,099",
+      "image": "https://m.media-amazon.com/images/I/81vIdmhOjxL._AC_UY218_.jpg",
+      "discount": "(50% off)"
+    },
+    {
+      "id": 129,
+      "name": "boAt Stone 620 Bluetooth Speaker with 12W RMS Stereo Sound, 10HRS Playtime, TWS Feature, IPX4, Multi-Compatibility Mode(Black)",
+      "rating": "4.1",
+      "price": "1,999",
+      "image": "https://m.media-amazon.com/images/I/61oSoHc7VtL._AC_UY218_.jpg",
+      "discount": "(50% off)"
+    },
+    {
+      "id": 130,
+      "name": "Marshall Emberton 20 Watt Wireless Bluetooth Portable Speaker (Black and Brass)",
+      "rating": "4.6",
+      "price": "14,399",
+      "image": "https://m.media-amazon.com/images/I/61sSDlJmv2L._AC_UY218_.jpg",
+      "discount": "(18% off)"
+    },
+    {
+      "id": 131,
+      "name": "JBL Flip 6 Wireless Portable Bluetooth Speaker Pro Sound, Upto 12 Hours Playtime, IP67 Water & Dustproof, PartyBoost & Personalization App (Without Mic, Black)",
+      "rating": "4.4",
+      "price": "10,989",
+      "image": "https://m.media-amazon.com/images/I/71zDU8JBLZL._AC_UY218_.jpg",
+      "discount": "(22% off)"
+    },
+    {
+      "id": 132,
+      "name": "boAt Stone 180 5W Bluetooth Speaker with Upto 10 Hours Playback, 1.75\" Driver, IPX7 & TWS Feature(Blue)",
+      "rating": "4.1",
+      "price": "1,299",
+      "image": "https://m.media-amazon.com/images/I/71EUBuY6bIL._AC_UY218_.jpg",
+      "discount": "(48% off)"
+    },
+    {
+      "id": 133,
+      "name": "AmazonBasics Bluetooth Speaker 5.0 Soundbar with 16W RMS, 2000mAh Battery, Upto 19 Hrs Playtime Aux/USB Port (Grey)",
+      "rating": "3.8",
+      "price": "1,099",
+      "image": "https://m.media-amazon.com/images/I/81Oa+WnnA4L._AC_UY218_.jpg",
+      "discount": "(50% off)"
+    },
+    {
+      "id": 134,
+      "name": "boAt Stone 1208 Bluetooth Speaker with Upto 9 Hours Playback, RGB LEDs, True Wireless Feature, Carry Strap, IPX7 and Ergonomical Design(Black)",
+      "rating": "4.2",
+      "price": "3,499",
+      "image": "https://m.media-amazon.com/images/I/714MYujiCXL._AC_UY218_.jpg",
+      "discount": "(50% off)"
+    },
+    {
+      "id": 135,
+      "name": "Infinity (JBL Fuze Pint, Wireless Ultra Portable Mini Speaker with Mic, Deep Bass, Dual Equalizer, Bluetooth 5.0 with Voice Assistant Support for Mobiles (Black)",
+      "rating": "4.1",
+      "price": "899",
+      "image": "https://m.media-amazon.com/images/I/71K6mroOBJL._AC_UY218_.jpg",
+      "discount": "(55% off)"
+    },
+    {
+      "id": 136,
+      "name": "Amazon Basics Portable Multimedia Speaker| Suitable for Laptop & Desktop (Black) | USB 2.0 | Deep Bass",
+      "rating": "4.2",
+      "price": "529",
+      "image": "https://m.media-amazon.com/images/I/81GQvhFxlXL._AC_UY218_.jpg",
+      "discount": "(59% off)"
+    },
+    {
+      "id": 137,
+      "name": "JBL Flip 5 Wireless Portable Bluetooth Speaker, Signature Sound with Powerful Bass Radiator, Vibrant Colors with Rugged Design, PartyBoost, IPX7 Waterproof & Type C (Without Mic, Black)",
+      "rating": "4.4",
+      "price": "6,999",
+      "image": "https://m.media-amazon.com/images/I/71g0JM2SXvL._AC_UY218_.jpg",
+      "discount": "(36% off)"
+    },
+    {
+      "id": 138,
+      "name": "Samsung Dolby Digital Bluetooth Soundbar (HW-T42E/XL, Black, 2.1 Channel)",
+      "rating": "4.1",
+      "price": "7,499",
+      "image": "https://m.media-amazon.com/images/I/71YUCeNf93L._AC_UY218_.jpg",
+      "discount": "(56% off)"
+    },
+    {
+      "id": 139,
+      "name": "ZEBRONICS Zeb-Astra 20 Wireless BT v5.0 Portable Speaker with 10W RMS Output, TWS, 10H Backup Approx, Built in Rechargeable Battery FM Radio, AUX, mSD, USB, Call Function and Dual 52mm Drivers Multi",
+      "rating": "3.8",
+      "price": "899",
+      "image": "https://m.media-amazon.com/images/I/71yCNxkT4GL._AC_UY218_.jpg",
+      "discount": "(61% off)"
+    },
+    {
+      "id": 140,
+      "name": "JBL Go 2, Wireless Portable Bluetooth Speaker with Mic, Signature Sound, Vibrant Color Options with IPX7 Waterproof & AUX (Black)",
+      "rating": "4.3",
+      "price": "1,999",
+      "image": "https://m.media-amazon.com/images/I/71gNS1OH3qL._AC_UY218_.jpg",
+      "discount": "(33% off)"
+    },
+    {
+      "id": 141,
+      "name": "boAt Stone 135 Portable Wireless Speaker with 5W RMS Immersive Sound, IPX4 Water Resistance, True Wireless Feature, Up to 11H Total Playtime, Multi-Connectivity Modes(Active Black)",
+      "rating": "4.0",
+      "price": "999",
+      "image": "https://m.media-amazon.com/images/I/61BZ1cEl6oL._AC_UY218_.jpg",
+      "discount": "(50% off)"
+    },
+    {
+      "id": 142,
+      "name": "JBL Flip 5 Wireless Portable Bluetooth Speaker, Signature Sound with Powerful Bass Radiator, Vibrant Colors with Rugged Design, PartyBoost, IPX7 Waterproof & Type C (Without Mic, Black)",
+      "rating": "4.4",
+      "price": "6,999",
+      "image": "https://m.media-amazon.com/images/I/71g0JM2SXvL._AC_UY218_.jpg",
+      "discount": "(36% off)"
+    },
+    {
+      "id": 143,
+      "name": "Zebronics Zeb-Pluto 2.0 Multimedia Speaker with Aux Connectivity,USB Powered and Volume Control",
+      "rating": "4.0",
+      "price": "349",
+      "image": "https://m.media-amazon.com/images/I/71k8be3rnGL._AC_UY218_.jpg",
+      "discount": "(30% off)"
+    },
+    {
+      "id": 144,
+      "name": "ZEBRONICS Zeb-Fame 5watts 2.0 Multi Media Speakers with AUX, USB and Volume Control (Black)",
+      "rating": "3.9",
+      "price": "499",
+      "image": "https://m.media-amazon.com/images/I/91zCZLVUg8L._AC_UY218_.jpg",
+      "discount": "(38% off)"
+    }
+  ]
 }

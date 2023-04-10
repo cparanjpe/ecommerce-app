@@ -1,8 +1,11 @@
 from flask import Flask, render_template, jsonify, request, session, redirect
 from user import User
+import os
+from dotenv import load_dotenv
 from passlib.hash import pbkdf2_sha256
 from pymongo import MongoClient
 from flask_session import Session
+load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = b'\x16<\xe2\x13C\xaf\x89\xb0\xb7|\xf2\xcf\xfb<\x02\xad'
@@ -11,7 +14,8 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Mongodb connection
-client = MongoClient('localhost', 27017)
+# client = MongoClient('localhost', 27017)
+client = MongoClient(os.getenv('CONNECTION_STRING'))
 db = client.E_Commerce
 
 # routes
@@ -85,6 +89,7 @@ def handle_fetch_category():
     else:
         return jsonify({"message" : "category does not exist"}) , 404
 
+# create api to fetch 10 product from every category
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000", debug=True)
