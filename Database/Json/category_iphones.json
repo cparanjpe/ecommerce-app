@@ -1,0 +1,139 @@
+{
+"product" : [
+  {
+   "id": 1,
+   "name": "Apple iPhone 12 (128GB) - Purple",
+   "rating": "4.5",
+   "price": "64,900",
+   "image": "https://m.media-amazon.com/images/I/71hIfcIPyxS._AC_UY218_.jpg",
+   "discount": "(8% off)"
+  },
+  {
+   "id": 2, 
+   "name": "Apple iPhone 14 (128 GB) - Yellow",
+   "rating": "4.5",
+   "price": "71,999",
+   "image": "https://m.media-amazon.com/images/I/61WAINtWPPL._AC_UY218_.jpg",
+   "discount": "(10% off)"
+  },
+  {
+   "id": 3,
+   "name": "Apple iPhone 14 Pro Max (256 GB) - Gold",
+   "rating": "4.5",
+   "price": "1,49,900",
+   "image": "https://m.media-amazon.com/images/I/71T5NVOgbpL._AC_UY218_.jpg",
+   "discount": "(0% off)"
+  },
+  {
+   "id": 4,
+   "name": "Apple iPhone 14 Pro (128 GB) - Deep Purple",
+   "rating": "4.5",
+   "price": "1,19,999",
+   "image": "https://m.media-amazon.com/images/I/61HHS0HrjpL._AC_UY218_.jpg",
+   "discount": "(8% off)"
+  },
+  {
+    "id": 5, 
+   "name": "Apple iPhone 14 (128 GB) - (Product) RED",
+   "rating": "4.5",
+   "price": "70,999",
+   "image": "https://m.media-amazon.com/images/I/611mRs-imxL._AC_UY218_.jpg",
+   "discount": "(11% off)"
+  },
+  {
+    "id": 6, 
+   "name": "Apple iPhone 14 Pro Max (128 GB) - Space Black",
+   "rating": "4.5",
+   "price": "1,27,999",
+   "image": "https://m.media-amazon.com/images/I/610pghkO81L._AC_UY218_.jpg",
+   "discount": "(9% off)"
+  },
+  {
+   "id": 7, 
+   "name": "Apple iPhone 14 (128 GB) - Yellow",
+   "rating": "4.5",
+   "price": "71,999",
+   "image": "https://m.media-amazon.com/images/I/61WAINtWPPL._AC_UY218_.jpg",
+   "discount": "(10% off)"
+  },
+  {
+   "id": 8, 
+   "name": "Apple iPhone 12 (64GB) - White",
+   "rating": "4.5",
+   "price": "53,999",
+   "image": "https://m.media-amazon.com/images/I/711wsjBtWeL._AC_UY218_.jpg",
+   "discount": "(10% off)"
+  },
+  {
+   "id": 9,
+   "name": "Apple iPhone 14 Pro (128 GB) - Space Black",
+   "rating": "4.5",
+   "price": "1,19,999",
+   "image": "https://m.media-amazon.com/images/I/61XO4bORHUL._AC_UY218_.jpg",
+   "discount": "(8% off)"
+  },
+  {"id": 10,
+   "name": "Apple iPhone 14 Plus (128 GB) - Midnight",
+   "rating": "4.6",
+   "price": "84,900",
+   "image": "https://m.media-amazon.com/images/I/61B0+qQriPL._AC_UY218_.jpg",
+   "discount": "(6% off)"
+  },
+  {"id": 11,
+   "name": "Apple iPhone 14 Plus (128 GB) - Starlight",
+   "rating": "4.6",
+   "price": "79,999",
+   "image": "https://m.media-amazon.com/images/I/61b7Ew7kjYL._AC_UY218_.jpg",
+   "discount": "(11% off)"
+  },
+  {"id": 12,
+   "name": "Apple iPhone 12 (128GB) - (Product) RED",
+   "rating": "4.5",
+   "price": "59,900",
+   "image": "https://m.media-amazon.com/images/I/71E5zB1qbIL._AC_UY218_.jpg",
+   "discount": "(16% off)"
+  },
+  {"id": 13,
+   "name": "Apple iPhone 14 Pro (256 GB) - Gold",
+   "rating": "4.5",
+   "price": "1,29,999",
+   "image": "https://m.media-amazon.com/images/I/71ZDY57yTQL._AC_UY218_.jpg",
+   "discount": "(7% off)"
+  },
+  {"id": 14,
+   "name": "Apple iPhone 14 Pro (128 GB) - Gold",
+   "rating": "4.5",
+   "price": "1,19,999",
+   "image": "https://m.media-amazon.com/images/I/71ZDY57yTQL._AC_UY218_.jpg",
+   "discount": "(8% off)"
+  },
+  {"id": 15,
+   "name": "Apple iPhone 14 Plus (128 GB) - Purple",
+   "rating": "4.6",
+   "price": "84,900",
+   "image": "https://m.media-amazon.com/images/I/61YSNhAb00L._AC_UY218_.jpg",
+   "discount": "(6% off)"
+  },
+  {"id": 16,
+   "name": "Apple iPhone 12 (64GB) - (Product) RED",
+   "rating": "4.5",
+   "price": "53,999",
+   "image": "https://m.media-amazon.com/images/I/71E5zB1qbIL._AC_UY218_.jpg",
+   "discount": "(10% off)"
+  },
+  {"id": 17,
+   "name": "Apple iPhone 14 Pro (256 GB) - Space Black",
+   "rating": "4.5",
+   "price": "1,39,900",
+   "image": "https://m.media-amazon.com/images/I/61XO4bORHUL._AC_UY218_.jpg",
+   "discount": "(0% off)"
+  },
+  {"id": 18,
+   "name": "Apple iPhone 14 Pro (256 GB) - Deep Purple",
+   "rating": "4.5",
+   "price": "1,39,900",
+   "image": "https://m.media-amazon.com/images/I/61HHS0HrjpL._AC_UY218_.jpg",
+   "discount": "(0% off)"
+  }
+]
+}
