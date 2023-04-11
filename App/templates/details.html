@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+
+{% include 'navbar.html' %}
+{% block content %}
+<div onload="loadDetails('{{product_id}}')" ></div>
+<section id="product" class="text-gray-600 body-font overflow-hidden bg-slate-900">
+    
+    
+    
+  </section>
+  
+  <script src="../static/js/details.js" product_id="{{product_id}}"></script>
+
+{% endblock %}
+
