@@ -1,3 +1,5 @@
+from product import Product
+
 class User:
 
     @staticmethod
@@ -18,7 +20,8 @@ class User:
             "email": posted_data["email"],
             "age" : posted_data["age"],
             "gender" : posted_data["gender"],
-            "password": pbkdf2_sha256.encrypt(posted_data["password"])
+            "password": pbkdf2_sha256.encrypt(posted_data["password"]),
+            "cart_items" : []
         }
         # insert user data into database
         res = collection.insert_one(user)
@@ -57,3 +60,19 @@ class User:
             print(session)
             return jsonify({"message" : "logged in successfully"}) , 200
         return jsonify({"message" : "invalid login credential"}) , 400
+    
+
+    @staticmethod
+    def addToCart(db, user_id, category, product_id):
+        product , statusCode = Product.fetchProduct(db,category , product_id)
+        product["_id"] = str(product["_id"]) 
+        userCollection = db["user_info"]
+        user = userCollection.find_one({"_id" : user_id})
+        cart = user["cart_items"]
+        cart.append({"category" : category , "product" : product})
+        userCollection.update_one({"_id" : user_id} , {"$set":{"cart_items" : cart}})
+        return {"message" : "item added successfully"} , 200
+    
+
+
+    

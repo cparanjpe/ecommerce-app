@@ -20,10 +20,10 @@ window.addEventListener("load", async () => {
                     <p>Rating : ${ele.rating}</p>
                     <p>Discount : ${ele.discount}</p>
                     <h1 class="mt-1 text-white font-bold text-xl">₹ ${ele.price}</h1>
-                    <button type="button" class="text-black mt-3 bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-bold rounded-full text-sm px-3 py-1 text-center mr-2 mb-2 dark:focus:ring-yellow-900">View Details</button>
+                    <a href="/details/${prop}/${ele.id}" type="button" class="cursor-pointer text-black mt-3 bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-bold rounded-full text-sm px-3 py-1 text-center mr-2 mb-2 dark:focus:ring-yellow-900">View Details</a>
                     <div class="mt-3">
                     <button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-bold rounded-lg text-sm  px-4 py-2 text-center mr-2 mb-2">Buy Now</button>
-                    <button type="button" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-bold rounded-lg text-sm px-4 py-2 text-center mr-2 mb-2">Add to Cart</button>
+                    <button name=${prop} type="button" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-bold rounded-lg text-sm px-4 py-2 text-center mr-2 mb-2">Add to Cart</button>
                     </div>
                     </div>
             </div>`

@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from passlib.hash import pbkdf2_sha256
 from pymongo import MongoClient
 from flask_session import Session
+from bson.objectid import ObjectId
 load_dotenv()
 
 app = Flask(__name__)
@@ -31,20 +32,19 @@ def handle_signup_page():
 @app.get("/")
 def handle_home_page():    
     if session:
-        # fetch according to gender
-        # fetch 10 products of every category
         return render_template("home.html")
     else:
         return redirect("/login")
 
-@app.get("/category")
-def handle_category_page():    
+@app.get("/details/<category>/<product_id>")
+def handle_details_page(category , product_id):    
     if session:
-        # fetch according to gender
-        # fetch 10 products of every category
-        return render_template("home.html")
+        (data,statusCode) = Product.fetchProduct(db, category, product_id)
+        return render_template("details.html" , productInfo = data , statusCode = statusCode)
     else:
         return redirect("/login") 
+
+
 
 # api 
 @app.post("/api/user/signup")
@@ -60,20 +60,29 @@ def handle_signout():
     session.clear()
     return redirect("/login")
 
-# /api/fetch_category?category=watches&product_id=12
-@app.get("/api/product")
-def handleFetchProduct():
-    return Product.fetchProduct(request, db, jsonify)
+# /api/fetch_product/<category>/<product_id>
+@app.get("/api/fetch_product/<category>/<product_id>")
+def handleFetchProduct(category , product_id):
+    (data,statusCode) = Product.fetchProduct(db, category, product_id)
+    return jsonify(data) , statusCode
 
-# /api/fetch_category?category=watches
-@app.get("/api/fetch_category")
-def handleFetchCategory():
-    return Product.fetchCategory(request, db, jsonify)
+# /api/fetch_category/<category>
+@app.get("/api/fetch_category/<category>")
+def handleFetchCategory(category):
+    (data,statusCode) = Product.fetchCategory(db, category)
+    return jsonify(data) , statusCode
 
-# api/homepage_content
+# /api/homepage_content
 @app.get("/api/homepage_content")
 def handle_home_page_content():
-    return Product.fetchTenProductEachCategory(request, db, jsonify)
+    (data,statusCode) = Product.fetchTenProductEachCategory(db)
+    return jsonify(data) , statusCode
+
+# /api/add_to_cart/<user_id>/<category>/<product_id>
+@app.post("/api/add_to_cart/<user_id>/<category>/<product_id>")
+def handle_add_to_cart(user_id,category,product_id):
+    (data,statusCode) = User.addToCart(db, ObjectId(user_id), category, product_id)
+    return jsonify(data) , statusCode
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000", debug=True)

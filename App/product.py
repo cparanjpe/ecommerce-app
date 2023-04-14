@@ -1,32 +1,27 @@
 class Product:
     @staticmethod
-    def fetchCategory(request, db, jsonify):
-        args = request.args
-        category = args.get("category")    
+    def fetchCategory(db, category):
         collection = db[f"category_{category}"]
         data = list(collection.find({}))
         if data:
             for document in data:
                 document["_id"] = str(document["_id"])
-            return jsonify(data) , 200
+            return data , 200
         else:
-            return jsonify({"message" : "category does not exist"}) , 404 
+            return {"message" : "category does not exist"} , 404 
         
     @staticmethod
-    def fetchProduct(request, db, jsonify):
-        args = request.args
-        category = args.get("category")    
-        product_id = int(args.get("product_id"))
-        collection = db[f"category_{category}"]   
-        data = collection.find_one({"id" : product_id})
+    def fetchProduct(db, category, product_id):
+        collection = db[f"category_{category}"]  
+        data = collection.find_one({"id" : int(product_id)})
         if data:
             data["_id"] = str(data["_id"])
-            return jsonify(data) , 200
+            return data , 200
         else:
-            return jsonify({"message" : "item does not exist"}) , 404
+            return {"message" : "item does not exist"} , 404
         
     @staticmethod
-    def fetchTenProductEachCategory(request, db, jsonify):
+    def fetchTenProductEachCategory(db):
         collections = db.list_collection_names()
         mainDict = {}
         for collection in collections:
@@ -35,5 +30,5 @@ class Product:
                 for document in data:
                     document["_id"] = str(document["_id"])
                 mainDict[collection[9:]] = data
-        return jsonify(mainDict), 200
-                
+        return mainDict, 200
+              
