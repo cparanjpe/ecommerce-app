@@ -1,5 +1,6 @@
 from flask import Flask, render_template, jsonify, request, session, redirect
 from user import User
+from product import Product
 import os
 from dotenv import load_dotenv
 from passlib.hash import pbkdf2_sha256
@@ -43,10 +44,7 @@ def handle_category_page():
         # fetch 10 products of every category
         return render_template("home.html")
     else:
-        return redirect("/login")
-
-
-
+        return redirect("/login") 
 
 # api 
 @app.post("/api/user/signup")
@@ -62,35 +60,20 @@ def handle_signout():
     session.clear()
     return redirect("/login")
 
+# /api/fetch_category?category=watches&product_id=12
 @app.get("/api/product")
-def handle_product():
-    args = request.args
-    category = args.get("category")    
-    product_id = int(args.get("product_id"))
-    collection = db[f"category_{category}"]   
-    data = collection.find_one({"id" : product_id})
-    if data:
-        data["_id"] = str(data["_id"])
-        return jsonify(data) , 200
-    else:
-        return jsonify({"message" : "item does not exist"}) , 404
+def handleFetchProduct():
+    return Product.fetchProduct(request, db, jsonify)
 
+# /api/fetch_category?category=watches
+@app.get("/api/fetch_category")
+def handleFetchCategory():
+    return Product.fetchCategory(request, db, jsonify)
 
-@app.route("/api/fetch_category")
-def handle_fetch_category():
-    args = request.args
-    category = args.get("category")    
-    collection = db[f"category_{category}"]
-    data = list(collection.find({}))
-    if data:
-        for document in data:
-            document["_id"] = str(document["_id"])
-        return jsonify(data) , 200
-    else:
-        return jsonify({"message" : "category does not exist"}) , 404
-
-# create api to fetch 10 product from every category
+# api/homepage_content
+@app.get("/api/homepage_content")
+def handle_home_page_content():
+    return Product.fetchTenProductEachCategory(request, db, jsonify)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000", debug=True)
-

@@ -1,3 +1,0 @@
-create api for sign up
-create api for login
-create api for for each category
