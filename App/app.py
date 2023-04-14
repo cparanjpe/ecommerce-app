@@ -55,14 +55,35 @@ def handle_details_page(product_id):
         return render_template("details.html",product_id=product_id)
     else:
         return redirect("login")
-
-@app.get('/cart')
-def handle_cart_page():
+    
+@app.route('/add_to_cart/<int:product_id>',methods=['POST','GET'])
+def handle_add_to_cart(product_id):
     if session:
-        return render_template("cart.html")
+        collection = db.user_cart
+        user_id = session['user']['_id']
+        collection.update_one({"user_id": user_id}, {"$push": {"items": product_id}}, upsert=True)
+        return redirect("/")
     else:
-        return redirect("login")
+        return redirect("/login")
 
+@app.route("/cart",methods=['POST','GET'])
+def handle_cart():
+    if session:
+        user_id = session['user']['_id']
+        # print(user_id)
+        collection = db.user_cart
+        result = collection.find_one({"user_id": user_id})
+        if result is None:
+            # user has not added anything to cart
+            pass
+        else:
+            items = result.get("items", [])
+        print(items)
+      
+        # print(db.list_collection_names())
+        return render_template("cart.html",items=items)
+    else:
+        return redirect("/login")
 
 # api 
 @app.post("/api/user/signup")
