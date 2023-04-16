@@ -1,12 +1,14 @@
 from flask import Flask, render_template, jsonify, request, session, redirect
 from user import User
+from product import Product
 import os
 # from dotenv import load_dotenv
 from passlib.hash import pbkdf2_sha256
 from pymongo import MongoClient
 from flask_session import Session
-import certifi
+from bson.objectid import ObjectId
 # load_dotenv()
+import certifi
 
 app = Flask(__name__)
 app.secret_key = b'\x16<\xe2\x13C\xaf\x89\xb0\xb7|\xf2\xcf\xfb<\x02\xad'
@@ -17,8 +19,9 @@ Session(app)
 # Mongodb connection
 # client = MongoClient('localhost', 27017)
 ca = certifi.where()
-client = MongoClient('mongodb+srv://user1:user1pass@cluster0.fo9gzpt.mongodb.net/?retryWrites=true&w=majority', tlsCAFile=ca)
+client = MongoClient('mongodb+srv://user:userpass@cluster0.ocdnjgz.mongodb.net/?retryWrites=true&w=majority', tlsCAFile=ca)
 db = client.E_Commerce
+
 
 # routes
 @app.get("/login/")
@@ -32,58 +35,19 @@ def handle_signup_page():
 @app.get("/")
 def handle_home_page():    
     if session:
-        # fetch according to gender
-        # fetch 10 products of every category
         return render_template("home.html")
     else:
         return redirect("/login")
 
-@app.get("/category")
-def handle_category_page():    
+@app.get("/details/<category>/<product_id>")
+def handle_details_page(category , product_id):    
     if session:
-        # fetch according to gender
-        # fetch 10 products of every category
-        return render_template("home.html")
+        (data,statusCode) = Product.fetchProduct(db, category, product_id)
+        return render_template("details.html" , productInfo = data , statusCode = statusCode)
     else:
-        return redirect("/login")
+        return redirect("/login") 
 
-# route for fetching product details according to product_id 
-@app.route('/details/<int:product_id>',methods=['POST','GET'])
-def handle_details_page(product_id):
-    if session:
-        # print(product_id)
-        return render_template("details.html",product_id=product_id)
-    else:
-        return redirect("login")
-    
-@app.route('/add_to_cart/<int:product_id>',methods=['POST','GET'])
-def handle_add_to_cart(product_id):
-    if session:
-        collection = db.user_cart
-        user_id = session['user']['_id']
-        collection.update_one({"user_id": user_id}, {"$push": {"items": product_id}}, upsert=True)
-        return redirect("/")
-    else:
-        return redirect("/login")
 
-@app.route("/cart",methods=['POST','GET'])
-def handle_cart():
-    if session:
-        user_id = session['user']['_id']
-        # print(user_id)
-        collection = db.user_cart
-        result = collection.find_one({"user_id": user_id})
-        if result is None:
-            # user has not added anything to cart
-            pass
-        else:
-            items = result.get("items", [])
-        print(items)
-      
-        # print(db.list_collection_names())
-        return render_template("cart.html",items=items)
-    else:
-        return redirect("/login")
 
 # api 
 @app.post("/api/user/signup")
@@ -99,34 +63,31 @@ def handle_signout():
     session.clear()
     return redirect("/login")
 
-@app.get("/api/product")
-def handle_product():
-    args = request.args
-    category = args.get("category")    
-    product_id = int(args.get("product_id"))
-    collection = db[f"category_{category}"]   
-    data = collection.find_one({"id" : product_id})
-    if data:
-        data["_id"] = str(data["_id"])
-        return jsonify(data) , 200
-    else:
-        return jsonify({"message" : "item does not exist"}) , 404
+# /api/fetch_product/<category>/<product_id>
+@app.get("/api/fetch_product/<category>/<product_id>")
+def handleFetchProduct(category , product_id):
+    (data,statusCode) = Product.fetchProduct(db, category, product_id)
+    return jsonify(data) , statusCode
 
+# /api/fetch_category/<category>
+@app.get("/api/fetch_category/<category>")
+def handleFetchCategory(category):
+    (data,statusCode) = Product.fetchCategory(db, category)
+    return jsonify(data) , statusCode
 
-@app.route("/api/fetch_category")
-def handle_fetch_category():
-    args = request.args
-    category = args.get("category")    
-    collection = db[f"category_{category}"]
-    data = list(collection.find({}))
-    if data:
-        for document in data:
-            document["_id"] = str(document["_id"])
-        return jsonify(data) , 200
-    else:
-        return jsonify({"message" : "category does not exist"}) , 404
+# /api/homepage_content
+@app.get("/api/homepage_content")
+def handle_home_page_content():
+    (data,statusCode) = Product.fetchTenProductEachCategory(db)
+    return jsonify(data) , statusCode
 
-# create api to fetch 10 product from every category
+# /api/add_to_cart/<user_id>/<category>/<product_id>
+@app.get("/api/add_to_cart/<category>/<product_id>")
+def handle_add_to_cart(category,product_id):
+    user_id = session['user']['_id']
+    (data,statusCode) = User.addToCart(db, ObjectId(user_id), category, product_id)
+    # return jsonify(data) , statusCode
+    return redirect("/")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000", debug=True)
