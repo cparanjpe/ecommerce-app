@@ -1,4 +1,7 @@
 const cartContainer = document.getElementById("cart-container")
+const priceContainer = document.getElementById("item-total")
+const taxContainer = document.getElementById("tax")
+const totalContainer = document.getElementById("total-bill")
 
 
 const removeItem = async(product_id)=>{    
@@ -13,10 +16,16 @@ window.addEventListener("load", async () => {
     let res = await fetch(`${window.location.origin}/api/fetch_cart_items`)
     let data = await res.json()
     let dataStr = ``
+    let cartval = 0
 
     data.forEach(ele => {
         // todo
         // calculations for detail panel
+        let value = ele.product.price
+        value = value.replace(",","")
+        value = parseInt(value)
+        cartval += value
+        
         dataStr += `
             <div class="shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] bg-slate-700 my-5 mx-8 flex rounded-2xl space-x-10">
             <div class="block bg-white  px-3 rounded-l-2xl align-middle overflow-hidden">
@@ -35,6 +44,12 @@ window.addEventListener("load", async () => {
                 </div>
             </div>
         `
+        
     });
     cartContainer.innerHTML += dataStr
+    priceContainer.innerHTML +=cartval
+    taxContainer.innerHTML += 0.18*cartval
+    totalContainer.innerHTML += (1.18*cartval + 100)
+
 })
+
