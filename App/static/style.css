@@ -1,3 +1,7 @@
+body{
+  background-color: rgb(15 23 42);;
+}  
+
 *::-webkit-scrollbar {
     width: 12px;      
   }
@@ -134,6 +138,3 @@
     }
   }
   
-body{
-  background-color: rgb(15 23 42);;
-}  

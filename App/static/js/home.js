@@ -1,6 +1,17 @@
 let container = document.getElementById("main-container")
 
 
+const addToCart = async(category , product_id)=>{
+    const res = await fetch(`${window.location.origin}/api/add_to_cart/${category}/${product_id}`)
+    const data = await res.json();
+    // let resData = await res.json()
+    if(res.status === 200){
+        console.log("hogya")
+    }else{
+        console.log("nhi huwa")
+    }
+}
+
 window.addEventListener("load", async () => {
     container.innerHTML = `<div class="flex justify-center relative top-[250px]"><div class="lds-facebook"><div></div><div></div><div></div></div></div>`
     const res = await fetch(`${window.location.origin}/api/homepage_content`)
@@ -22,8 +33,8 @@ window.addEventListener("load", async () => {
                     <h1 class="mt-1 text-white font-bold text-xl">₹ ${ele.price}</h1>
                     <a href="/details/${prop}/${ele.id}" type="button" class="cursor-pointer text-black mt-3 bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-bold rounded-full text-sm px-3 py-1 text-center mr-2 mb-2 dark:focus:ring-yellow-900">View Details</a>
                     <div class="mt-3">
-                    <button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-bold rounded-lg text-sm  px-4 py-2 text-center mr-2 mb-2">Buy Now</button>
-                    <button name=${prop} type="button" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-bold rounded-lg text-sm px-4 py-2 text-center mr-2 mb-2">Add to Cart</button>
+                    <button onclick="test()" type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-bold rounded-lg text-sm  px-4 py-2 text-center mr-2 mb-2">Buy Now</button>
+                    <button onclick="addToCart('${prop}' , '${ele.id}')" name=${prop} type="button" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-bold rounded-lg text-sm px-4 py-2 text-center mr-2 mb-2">Add to Cart</button>
                     </div>
                     </div>
             </div>`
@@ -36,4 +47,5 @@ window.addEventListener("load", async () => {
                        </div>`
     }
     container.innerHTML = sectionStr
+
 })

@@ -1,7 +1,5 @@
 from product import Product
-
 class User:
-
     @staticmethod
     def signup(request, db, jsonify, pbkdf2_sha256, session):
         # get user posted info
@@ -40,7 +38,6 @@ class User:
         # if insertion of data fails
             return jsonify({"error": "signup failed"}) , 400
 
-
     @staticmethod
     def login(request, db, jsonify, pbkdf2_sha256, session):
         posted_data = request.get_json()
@@ -61,18 +58,16 @@ class User:
             return jsonify({"message" : "logged in successfully"}) , 200
         return jsonify({"message" : "invalid login credential"}) , 400
     
-
     @staticmethod
     def addToCart(db, user_id, category, product_id):
-        product , statusCode = Product.fetchProduct(db,category , product_id)
-        product["_id"] = str(product["_id"]) 
-        userCollection = db["user_info"]
-        user = userCollection.find_one({"_id" : user_id})
-        cart = user["cart_items"]
-        cart.append({"category" : category , "product" : product})
-        userCollection.update_one({"_id" : user_id} , {"$set":{"cart_items" : cart}})
-        return {"message" : "item added successfully"} , 200
-    
-
-
-    
+        try:
+            product , statusCode = Product.fetchProduct(db,category , product_id)
+            product["_id"] = str(product["_id"]) 
+            userCollection = db["user_info"]
+            user = userCollection.find_one({"_id" : user_id})
+            cart = user["cart_items"]
+            cart.append({"category" : category , "product" : product})
+            userCollection.update_one({"_id" : user_id} , {"$set":{"cart_items" : cart}})
+            return {"message" : "item added successfully"} , 200    
+        except:
+            return {"message" : "failed to add item to the cart"} , 500    

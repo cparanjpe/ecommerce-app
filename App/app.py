@@ -7,6 +7,7 @@ from passlib.hash import pbkdf2_sha256
 from pymongo import MongoClient
 from flask_session import Session
 from bson.objectid import ObjectId
+import json
 load_dotenv()
 
 app = Flask(__name__)
@@ -44,7 +45,12 @@ def handle_details_page(category , product_id):
     else:
         return redirect("/login") 
 
-
+@app.get("/cart")
+def handle_cart_page():    
+    if session:
+        return render_template("cart.html")
+    else:
+        return redirect("/login") 
 
 # api 
 @app.post("/api/user/signup")
@@ -60,29 +66,37 @@ def handle_signout():
     session.clear()
     return redirect("/login")
 
-# /api/fetch_product/<category>/<product_id>
 @app.get("/api/fetch_product/<category>/<product_id>")
 def handleFetchProduct(category , product_id):
     (data,statusCode) = Product.fetchProduct(db, category, product_id)
     return jsonify(data) , statusCode
 
-# /api/fetch_category/<category>
 @app.get("/api/fetch_category/<category>")
 def handleFetchCategory(category):
     (data,statusCode) = Product.fetchCategory(db, category)
     return jsonify(data) , statusCode
 
-# /api/homepage_content
 @app.get("/api/homepage_content")
 def handle_home_page_content():
     (data,statusCode) = Product.fetchTenProductEachCategory(db)
     return jsonify(data) , statusCode
 
-# /api/add_to_cart/<user_id>/<category>/<product_id>
-@app.post("/api/add_to_cart/<user_id>/<category>/<product_id>")
-def handle_add_to_cart(user_id,category,product_id):
-    (data,statusCode) = User.addToCart(db, ObjectId(user_id), category, product_id)
+@app.get("/api/add_to_cart/<category>/<product_id>")
+def handle_add_to_cart(category,product_id):
+    (data,statusCode) = User.addToCart(db, ObjectId(session.get('user')["_id"]), category, product_id)
     return jsonify(data) , statusCode
+
+@app.get("/api/fetch_cart_items")
+def handle_fetch_cart_items():    
+    (data , statusCode) = Product.fetchCartItems(db, session)
+    return jsonify(data) , 200
+    
+@app.get("/api/remove_item_from_cart/<product_id>")
+def handle_remove_item_from_cart(product_id):
+    (data , statusCode) = Product.removeItem(db, session, product_id)
+    return jsonify(data) , 200
+
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000", debug=True)
