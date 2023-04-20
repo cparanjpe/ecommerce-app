@@ -64,7 +64,7 @@ def handle_login():
 @app.route("/api/user/signout")
 def handle_signout():
     session.clear()
-    return redirect("/login")
+    return redirect("/login") , 200
 
 @app.get("/api/fetch_product/<category>/<product_id>")
 def handleFetchProduct(category , product_id):
@@ -96,6 +96,9 @@ def handle_remove_item_from_cart(product_id):
     (data , statusCode) = Product.removeItem(db, session, product_id)
     return jsonify(data) , 200
 
+@app.get("/api/fetch_category_menu")
+def handle_category_menu():
+    return jsonify(db.list_collection_names()) , 200
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-<nav class="text-white flex justify-between p-2">
+<nav class="text-white flex items-center justify-between p-2">
   <a href="/">
     <div class="logo-conatiner flex items-center space-x-2 cursor-pointer ml-7">
       <div class="logo-img">
@@ -9,8 +9,12 @@
       </div>
     </div>
   </a>
-  <div>
-    search bar
+  <div id="search-bar" class="flex">
+    <select class="text-white bg-slate-700 rounded-l-full border-r-2  outline-0 text-lg font-bolt min-w-fit py-2 px-3" name="cars" id="category-menu">
+
+    </select>
+    <input type="search" class="bg-slate-700 text-lg font-bold outline-0 w-96  px-4 py-2" placeholder="search" id="">
+    <button class="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 px-7 py-2 text-xl font-bold rounded-r-full">Search</button>
   </div>
   <div>
     <ul class="flex space-x-3 px-4 text-md font-bold">
@@ -20,4 +24,35 @@
       <li><a href="/cart">Cart</a></li>
     </ul>
   </div>
+  <div>
+    <button onclick="signout()" type="button" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-bold rounded-lg text-lg px-5 py-2 text-center mr-2 mb-2">Sign out</button>
+  </div>
 </nav>
+<script>
+  const signout = async()=>{
+    console.log("first")
+    let res = await fetch(`${window.location.origin}/api/user/signout`)
+    if(res.status === 200)
+    window.location.href = "/login"
+  }
+  let dropDown = document.getElementById("category-menu")
+  window.addEventListener("load", async () => {
+    let res = await fetch(`${window.location.origin}/api/fetch_category_menu`)
+    let data = await res.json()
+    updateMenu(data)
+  })
+
+  const updateMenu = async (data) => {
+    let dataStr = `
+    <option value="">All Categories</option>
+    `
+    
+    data.forEach(element => {
+      (element.substring(0, 9) === "category_") && (dataStr += `
+      <option value="${element.substring(9)}">${element.substring(9)}</option>
+      `)
+    });
+    dropDown.innerHTML = dataStr
+  }
+  
+</script>

@@ -1,20 +1,33 @@
 const cartContainer = document.getElementById("cart-container")
-
+const priceContainer = document.getElementById("item-total")
+const taxContainer = document.getElementById("tax")
+const totalContainer = document.getElementById("total-bill")
+let cartval = 0
 
 const removeItem = async(product_id)=>{    
     let res = await fetch(`${window.location.origin}/api/remove_item_from_cart/${product_id}`)
     let data = await res.json()
-    console.log(res.status)
-    console.log(data)
+    if(res.status === 200){
+        renderCart()
+    }
 }
 
 
 window.addEventListener("load", async () => {
+    renderCart()
+})
+
+
+const renderCart = async()=>{
     let res = await fetch(`${window.location.origin}/api/fetch_cart_items`)
     let data = await res.json()
     let dataStr = ``
-
+    cartval = 0
     data.forEach(ele => {
+        let value = ele.product.price
+        value = value.replace(",","")
+        value = parseInt(value)
+        cartval += value
         // todo
         // calculations for detail panel
         dataStr += `
@@ -36,5 +49,8 @@ window.addEventListener("load", async () => {
             </div>
         `
     });
-    cartContainer.innerHTML += dataStr
-})
+    cartContainer.innerHTML = dataStr    
+    priceContainer.innerHTML = `₹ `+cartval
+    taxContainer.innerHTML = `₹ `+0.18*cartval
+    totalContainer.innerHTML = `₹ `+(1.18*cartval + 100)
+}
