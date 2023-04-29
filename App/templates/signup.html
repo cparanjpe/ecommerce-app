@@ -3,10 +3,11 @@
 
 {% block content %}
 
-<section class="text-gray-400 bg-gray-900 body-font relative">
+<section class="text-gray-400 bg-black h-[100vh] body-font">
+    <div id="loader-container" class="flex justify-center absolute z-10 top-[300px] left-[750px]">
+    </div>
     <div class="absolute inset-0 bg-gray-900">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-            class="img-fluid login-img" alt="Sample image">
+        <img src="../static/assets/signup.jpg" class="h-[100vh] w-[100%] img-fluid login-img h-[100vh]" width="100%" alt="Sample image">
     </div>
     <div class="container px-5 py-24 mx-auto flex">
         <div
@@ -23,16 +24,19 @@
                     class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <div class="relative mb-4">
-                <label id="age-label" for="minmax-range" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Age : 0</label>
-                <input id="minmax-range" type="range" min="0" max="100" value="0" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">                
+                <label id="age-label" for="minmax-range"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Age : 0</label>
+                <input id="minmax-range" type="range" min="0" max="100" value="0"
+                    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
             </div>
             <div class="relative mb-4">
                 <!-- <label for="browser">Gender</label> -->
-                <input id="gender" list="browsers" name="browser" class="px-2 py-1 rounded bg-[#334155]" id="browser" placeholder="Select Gender">
+                <input id="gender" list="browsers" name="browser" class="px-2 py-1 rounded bg-[#334155]" id="browser"
+                    placeholder="Select Gender">
                 <datalist id="browsers">
-                  <option value="Male">
-                  <option value="Female">
-                  <option value="Prefer not say">
+                    <option value="Male">
+                    <option value="Female">
+                    <option value="Prefer not say">
             </div>
             <div class="relative mb-4">
                 <label for="password" class="leading-7 text-sm text-gray-400">Password</label>
@@ -41,37 +45,14 @@
             </div>
 
             <button id="signup-btn"
-                class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
-                <div class="flex space-x-3 mt-5">
-                    <p>Don't have an account?</p><a href="/signup" class="font-bold text-white underline">sign up</a>
-                </div>
+                class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Sign
+                up</button>
+            <div class="flex space-x-3 mt-5">
+                <p>already have an account?</p><a href="/login" class="font-bold text-white underline">login</a>
+            </div>
 
         </div>
     </div>
 </section>
-<!-- <div class="col-4 m-5">
-    <div class="form-group">
-        <label for="username">Username</label>
-        <input type="name" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter username">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
-        <label for="age">Age</label>
-        <input type="age" class="form-control" id="age" placeholder="Enter age">
-    </div>
-    <div class="form-group">
-        <label for="gender">Gender</label>
-        <input type="gender" class="form-control" id="gender" placeholder="Enter gender">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password">
-    </div>
-    <button type="submit" class="btn btn-primary mt-2" id="signup-btn">Submit</button>
-</div> -->
-<script src="../static/js/signup.js"></script>
+<script src="{{ url_for('static', filename='js/signup.js') }}"></script>
 {% endblock %}
