@@ -1,19 +1,14 @@
 let username = document.getElementById("username")
 let email = document.getElementById("email")
-// let age = document.getElementById("age")
 let gender = document.getElementById("gender")
 let password = document.getElementById("password")
 let btn = document.getElementById("signup-btn")
 let age = document.getElementById("minmax-range")
 let label = document.getElementById("age-label")
-
-
+let loader_container = document.getElementById("loader-container")
 btn.addEventListener("click", async () => {
-    console.log(username.value)
-    console.log(email.value)
-    console.log(age.value)
-    console.log(password.value)
-    console.log(gender.value)
+    loader_container.innerHTML = `<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>`
     let res = await fetch(`${window.location.origin}/api/user/signup`, {
         method: "POST",
         body: JSON.stringify({ name: username.value, email: email.value, age: age.value, gender: gender.value, password: password.value }),
