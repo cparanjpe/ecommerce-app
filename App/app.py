@@ -29,8 +29,8 @@ db = client.E_Commerce
 app.config['MAIL_SERVER'] = 'smtp-mail.outlook.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS']=True
-app.config['MAIL_USERNAME']='eazymart23@outlook.com'
-app.config['MAIL_PASSWORD']='thck@2023'
+app.config['MAIL_USERNAME']='mail goes here'
+app.config['MAIL_PASSWORD']='pass goes here'
 mail = Mail(app)
 
 # routes
