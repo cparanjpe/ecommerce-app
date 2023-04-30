@@ -13,7 +13,7 @@
     <select class="text-white bg-slate-700 rounded-l-full border-r-2  outline-0 text-lg font-bolt min-w-fit py-2 px-3" name="cars" id="category-menu">
 
     </select>
-    <input type="search" class="bg-slate-700 text-lg font-bold outline-0 w-96  px-4 py-2" placeholder="search" id="">
+    <input type="search" onchange="handleSearchChange(event)" class="bg-slate-700 text-lg font-bold outline-0 w-96  px-4 py-2" placeholder="search" id="">
     <button class="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 px-7 py-2 text-xl font-bold rounded-r-full">Search</button>
   </div>
   <div>
@@ -54,5 +54,7 @@
     });
     dropDown.innerHTML = dataStr
   }
+
+  
   
 </script>

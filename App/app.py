@@ -11,6 +11,7 @@ import json
 # load_dotenv()
 import certifi
 from datetime import datetime
+from flask_mail import Mail,Message
 
 app = Flask(__name__)
 app.secret_key = b'\x16<\xe2\x13C\xaf\x89\xb0\xb7|\xf2\xcf\xfb<\x02\xad'
@@ -23,6 +24,15 @@ Session(app)
 ca = certifi.where()
 client = MongoClient('mongodb+srv://user:userpass@cluster0.ocdnjgz.mongodb.net/?retryWrites=true&w=majority', tlsCAFile=ca)
 db = client.E_Commerce
+
+#email config
+app.config['MAIL_SERVER'] = 'smtp-mail.outlook.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS']=True
+app.config['MAIL_USERNAME']='eazymart23@outlook.com'
+app.config['MAIL_PASSWORD']='thck@2023'
+mail = Mail(app)
+
 # routes
 @app.get("/login/")
 def handle_login_page():
@@ -43,7 +53,7 @@ def handle_home_page():
 def handle_details_page(category , product_id):    
     if session:
         (data,statusCode) = Product.fetchProduct(db, category, product_id)
-        return render_template("details.html" , productInfo = data , statusCode = statusCode)
+        return render_template("details.html" ,category=category,product_id=product_id, productInfo = data , statusCode = statusCode)
     else:
         return redirect("/login") 
 
@@ -64,11 +74,11 @@ def handle_checkout_page():
 @app.get("/addorder/<order_total>")
 def handle_addorder_page(order_total):
     if session:
-        # print(type(order_total))
         # orderCollection = db.create_collection('customer_orders')
-        # print(db.list_collection_names())
+
+        
         orderCollection = db['customer_orders']
-        # print(session.get('user')["_id"])
+       
         collection = db[f"user_info"]  
         data = collection.find_one({"_id" : session.get('user')["_id"]})
         order = {
@@ -78,7 +88,13 @@ def handle_addorder_page(order_total):
             'date':datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         }
         result = orderCollection.insert_one(order)
-        print(result)
+        email = session.get('user')["email"]
+        # print(email)
+        recipients = []
+        recipients.append(email)
+        msg = Message('Order confirmation : EazyMart',sender='eazymart23@outlook.com',recipients=recipients)
+        msg.body = "Payment for order received ! Order should be delivered in 7-8 business days ! Thanks for shopping with us."
+        mail.send(msg)
         return redirect("/myorders")
 
     else:
