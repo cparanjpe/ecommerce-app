@@ -29,8 +29,8 @@ db = client.E_Commerce
 app.config['MAIL_SERVER'] = 'smtp-mail.outlook.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS']=True
-app.config['MAIL_USERNAME']='mail goes here'
-app.config['MAIL_PASSWORD']='pass goes here'
+app.config['MAIL_USERNAME']='ecommerceapp2024@outlook.com'
+app.config['MAIL_PASSWORD']='HCKS@2024'
 mail = Mail(app)
 
 # routes
@@ -92,7 +92,7 @@ def handle_addorder_page(order_total):
         # print(email)
         recipients = []
         recipients.append(email)
-        msg = Message('Order confirmation : EazyMart',sender='eazymart23@outlook.com',recipients=recipients)
+        msg = Message('Order confirmation : EazyMart',sender='ecommerceapp2024@outlook.com',recipients=recipients)
         msg.body = "Payment for order received ! Order should be delivered in 7-8 business days ! Thanks for shopping with us."
         mail.send(msg)
         return redirect("/myorders")
